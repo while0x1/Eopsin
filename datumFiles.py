@@ -15,10 +15,11 @@ class Listing(PlutusData):
     fee_hash: bytes
 """
 #Import the dataclass from the eopsin python file
+#We will use the policy_id and policy_name in hex encoding so we will convert our policy using bytes.fromhex()
 
 from contract import Listing
 #recreate the datum structure in the correct order and print it to use in your transactions for locking or unlocking in cardano-cli
-print(Listing(b"e77b78f137cf18f7132904218595997ffa132ab5a8d4c832c3f1e315",b"56657269466169725f616c7068615f7469636b6574",b"f5b84180b5a3cca20052258fe73328c69ff8e0d41709505668101db7",5000000,2000000,b"f5b84180b5a3cca20052258fe73328c69ff8e0d41709505668101db7").to_json())
+print(Listing(bytes.fromhex("e77b78f137cf18f7132904218595997ffa132ab5a8d4c832c3f1e315"),bytes.fromhex("56657269466169725f616c7068615f7469636b6574"),bytes.fromhex("f5b84180b5a3cca20052258fe73328c69ff8e0d41709505668101db7"),5000000,2000000,bytes.fromhex("f5b84180b5a3cca20052258fe73328c69ff8e0d41709505668101db7")).to_json())
 
 
 ##Example Output
